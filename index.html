@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Password Generator</title>
+   <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Password Generator</h1>
+        <p class="subtitle">Create strong, AI-verified passwords</p>
+
+        <!-- Password Display -->
+        <div class="password-display-container">
+            <div id="password-display">Click Generate...</div>
+            <button id="copy-btn" title="Copy to clipboard">
+                <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <svg id="check-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+        </div>
+        <div id="message-area" class="message-area"></div>
+
+        <!-- Options -->
+        <div class="options">
+            <!-- Length Slider -->
+            <div class="option">
+                <label for="length-slider">Password Length</label>
+                <div class="length-container">
+                    <input type="range" id="length-slider" min="8" max="32" value="16">
+                    <span id="length-value">16</span>
+                </div>
+            </div>
+
+            <!-- Strength Selector -->
+            <div class="option">
+                <label>Strength Level</label>
+                <div class="strength-selector" id="strength-selector">
+                    <button class="strength-btn" data-strength="easy">Readable</button>
+                    <button class="strength-btn active" data-strength="strong">Strong</button>
+                    <button class="strength-btn" data-strength="max">Maximum</button>
+                </div>
+            </div>
+
+            <!-- Character Type Toggles -->
+            <div class="option">
+                <label for="uppercase">Include Uppercase (A-Z)</label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="uppercase" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="option">
+                <label for="lowercase">Include Lowercase (a-z)</label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="lowercase" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="option">
+                <label for="numbers">Include Numbers (0-9)</label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="numbers" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="option">
+                <label for="symbols">Include Symbols (!@#)</label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="symbols" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Generate Button -->
+        <button id="generate-btn">Generate Password</button>
+    </div>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

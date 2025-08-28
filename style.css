@@ -1,0 +1,284 @@
+/* --- General Styling & Theme --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+    --bg-color: #121212;
+    --surface-color-start: #1e1e1e;
+    --surface-color-end: #2a2a2a;
+    --primary-color: #4a90e2;
+    --primary-hover-color: #5aa1f2;
+    --text-color: #e0e0e0;
+    --text-muted-color: #888888;
+    --success-color: #4CAF50;
+    --border-color: #333333;
+    --warning-color: #f39c12;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    /* Restored dark blue gradient background */
+    background: linear-gradient(135deg, #0f1c3a, #0b1424);
+}
+
+/* --- Main Container --- */
+.container {
+    width: 100%;
+    max-width: 500px;
+    /* Restored subtle gradient background and enhanced styling */
+    background: linear-gradient(135deg, #1e2025, #292d34);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid #3a3f45;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted-color);
+    margin-bottom: 2rem;
+}
+
+/* --- Password Display Area --- */
+.password-display-container {
+    position: relative;
+    margin-bottom: 0.5rem; /* Adjusted for message area */
+}
+
+#password-display {
+    width: 100%;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem 3.5rem 1rem 1rem;
+    font-size: 1.25rem;
+    font-family: monospace;
+    color: var(--text-color);
+    letter-spacing: 1px;
+    word-break: break-all;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Message Area for Warnings/Errors --- */
+.message-area {
+    min-height: 20px;
+    text-align: center;
+    color: var(--warning-color);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s;
+}
+
+#copy-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--text-muted-color);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#copy-btn:hover {
+    color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+#copy-btn.copied {
+    color: var(--success-color);
+}
+
+/* --- Options Section --- */
+.options {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* --- Length Slider --- */
+.length-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#length-slider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity .2s;
+}
+
+#length-slider:hover {
+    opacity: 1;
+}
+
+#length-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #3a3f45; /* Updated border to match new card */
+}
+
+#length-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #3a3f45; /* Updated border to match new card */
+}
+
+#length-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    min-width: 30px;
+    text-align: center;
+}
+
+/* --- Strength Selector --- */
+.strength-selector {
+    display: flex;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    padding: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.strength-btn {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    background-color: transparent;
+    color: var(--text-muted-color);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+}
+
+.strength-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 700;
+}
+
+/* --- Custom Checkboxes --- */
+.checkbox-container {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    width: 48px;
+    height: 26px;
+}
+
+.checkbox-container input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 26px;
+    width: 48px;
+    background-color: var(--border-color);
+    transition: background-color 0.3s;
+    border-radius: 13px;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    top: 3px;
+    left: 4px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    transform: translateX(21px);
+}
+
+/* --- Generate Button --- */
+#generate-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 1rem;
+}
+
+#generate-btn:hover:not(:disabled) {
+    background-color: var(--primary-hover-color);
+}
+
+#generate-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+#generate-btn:disabled {
+    background-color: var(--text-muted-color);
+    cursor: not-allowed;
+}
